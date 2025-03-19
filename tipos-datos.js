@@ -1,37 +1,38 @@
+"use strict";
 // String
 // Comillas doble
-var saludo1 = "Hola a todos!";
+const saludo1 = "Hola a todos!";
 // Comillas simples
-var saludo2 = 'Hola a todos!';
+const saludo2 = 'Hola a todos!';
 // Template literals (backticks)
-var nombre = "Juan";
-var edad = 30;
-var saludo3 = "Hola mi nombre es ".concat(nombre, " y tengo ").concat(edad, " a\u00F1os.");
+const nombre = "Juan";
+const edad = 30;
+const saludo3 = `Hola mi nombre es ${nombre} y tengo ${edad} años.`;
 // Numeros
 // Numeros enteros
-var num1 = 10;
+const num1 = 10;
 // Notación exponencial
-var num2 = 2.5e3; // 2.5 * 10^3 = 2500
+const num2 = 2.5e3; // 2.5 * 10^3 = 2500
 // Notación exponecial negativa
-var num3 = 1.5e-2; // 1.5 * 10^-2 = 0.015
+const num3 = 1.5e-2; // 1.5 * 10^-2 = 0.015
 // Hexadecimales (base 16) utilizando el prefijo "0x"
-var num4 = 0xA; // valor decimal: 10
+const num4 = 0xA; // valor decimal: 10
 // Octales (base 8) utilizando el prefijo "0o"
-var num5 = 10; // valor decimal: 10
+const num5 = 0o12; // valor decimal: 10
 // Binarios (base 2) utilizando el prefijo "0b"
-var num6 = 10; // valor decimal: 10
+const num6 = 0b1010; // valor decimal: 10
 // Undefined 
 // Declaración de una variable con valor undefined
-var variableUndefined;
+let variableUndefined;
 // Asignación de valor undefined
 variableUndefined = undefined;
 // NULL
 // Declaración de una variable con valor null
-var variablenull;
+let variablenull;
 // Asignación del valor null
 variablenull = null;
 // Objeto
-var empleado = {
+const empleado = {
     nombre: "Antonio",
     edad: 18,
     casado: false,
@@ -41,11 +42,11 @@ var empleado = {
 };
 // Arrays
 // arreglo de numeros
-var numero = [1, 2, 3];
+const numero = [1, 2, 3];
 // arreglo de cadenas de texto
-var nombres = ["Juan", "Maria", "Pedro"];
+const nombres = ["Juan", "Maria", "Pedro"];
 // arreglo de booleanos
-var valoresBool = [true, false, true];
+const valoresBool = [true, false, true];
 // Enum
 // definición de enum para días de la semana
 var DiasSemana;
@@ -69,31 +70,29 @@ function sumar(a, b) {
     return a + b;
 }
 // funciones fecha de retorno implicito (inferido por typescript)
-var dividir = function (a, b) { return a / b; };
+const dividir = (a, b) => a / b;
 // funciones con parametros opcionales
 function saludar(nombre, edad) {
     if (edad !== undefined) {
-        return "Hola, mi nombre es ".concat(nombre, " y tengo ").concat(edad, " a\u00F1os.");
+        return `Hola, mi nombre es ${nombre} y tengo ${edad} años.`;
     }
     else {
-        return "Hola, mi nombre es ".concat(nombre, ".");
+        return `Hola, mi nombre es ${nombre}.`;
     }
 }
 // funciones con parametros por defecto
-function saludar2(nombre, edad) {
-    if (edad === void 0) { edad = 30; }
-    return "Hola, mi nombre es ".concat(nombre, " y tengo ").concat(edad, " a\u00F1os.");
+function saludar2(nombre, edad = 30) {
+    return `Hola, mi nombre es ${nombre} y tengo ${edad} años.`;
 }
 // Clases
-var Persona = /** @class */ (function () {
-    function Persona(nombre) {
+class Persona {
+    constructor(nombre) {
         this.nombre = nombre;
     }
-    Persona.prototype.saludar = function () {
-        console.log("Hola, es mi nombre ".concat(nombre, "."));
-    };
-    return Persona;
-}());
+    saludar() {
+        console.log(`Hola, es mi nombre ${nombre}.`);
+    }
+}
 /*
   TIPOS DE DATOS
   - Primitivos: string, number, boolean, undefined, null
